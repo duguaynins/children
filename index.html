@@ -278,8 +278,8 @@
                     <p  style="margin-top: 0;">(For sms use, but simpler!)</p>
                   </div-->
                   
-                  <div class="feature-item day" onclick="openForm(repo='google.forms', path='/')" style="">
-                    <h2 translate="no">📜 nins/forms 📜</h2>
+                  <div class="feature-item day" onclick="openFollow(repo='', path='/')" style="">
+                    <h2 translate="no">📜 nins/follow 📜</h2>
                     <p  style="margin-bottom: 0;">We’d love any brief feedback! We are helping to make sure all kindness is shared.</p>
                     <p  style="margin-top: 0; color: orange;" translate="no"></p>
                     <!--p>Display the absolute most useful time.</p!-->
@@ -319,10 +319,19 @@
     const href = "https://" + repo + ".nins.cc" + path;console.log(href);  ///https?
     window.open(href, "_blank", "noopener,noreferrer");
   }
-  // 按鈕方法
-  function openForm(repo, path) {
+  
+  function openForm(repo=null, path=null) {
     ///const href = "/apps/transing.html";
     const href = "https://docs.google.com/forms/d/e/1FAIpQLSct8PaArwmkAv10Eh5CEybu_88IoSj9V_QOLy07KiL6efu10g/viewform?";console.log(href);
+    window.open(href, "_blank", "noopener,noreferrer");
+  }
+  
+  function openFollow(repo=null, path=null) {
+    ///const href = "/apps/transing.html";
+    const subscription = Cookies.get("webpush");
+    const subscriptionJson = JSON.stringify(subscription);
+    const encodedSubscription = encodeURIComponent(subscriptionJson);
+    const href = `https://docs.google.com/forms/d/e/1FAIpQLScFvHqSal-_GkrtrUIG7v3dXmk0aubYma2DCnl-aXBPjWW-ng/viewform?usp=pp_url&entry.1788803497=${encodedSubscription}`;
     window.open(href, "_blank", "noopener,noreferrer");
   }
 </script>
@@ -332,7 +341,6 @@
   
 </body>
 </html>
-
 
 
 
